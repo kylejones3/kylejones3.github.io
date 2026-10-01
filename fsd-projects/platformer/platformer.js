@@ -55,9 +55,9 @@ $(function () {
 
     
     // TODO 4 - Create Cannons
-     createCannon("top",320,1000)
+     createCannon("top",320,600)
      createCannon("bottom",800,1150)
-     createCannon("right",450,990)
+     createCannon("right",450,700)
 
 
     
