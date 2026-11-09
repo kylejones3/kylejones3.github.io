@@ -75,8 +75,8 @@
       var positionX = 0;
       var positionY = 0;
       var points = 0;
-      var speed = 20;
-      var speedY = 9;
+      var speed = 10;
+      var speedY = 7;
 
 
 
@@ -124,6 +124,7 @@
       function handleBoxClick() {
         speed = 3 * points + 10;
         positionX = 0;
+        positionY = 100;
         points = points + 1;
         changeBoxText(points);
 
