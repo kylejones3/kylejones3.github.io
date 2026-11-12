@@ -26,6 +26,16 @@ var init = function (window) {
       circles.push(circle);
     }
 
+    Gamification.init({
+    canvas: canvas,
+    view: view,
+    draw: draw,
+    physikz: physikz,
+    circles: circles,
+    game: game
+   });
+
+
     // TODO 3 : Call the drawCircle() function
     // drawCircle();
     // drawCircle();
@@ -34,7 +44,7 @@ var init = function (window) {
     // drawCircle();
 
     // TODO 7 : Use a loop to create multiple circles
-    for (var i = 0; i < 25; i++) {
+    for (var i = 0; i < 100; i++) {
       drawCircle();
     }
 
@@ -67,6 +77,7 @@ var init = function (window) {
         physikz.updatePosition(circles[i]);
         game.checkCirclePosition(circles[i]);
       }
+      Gamification.update();
     }
 
     /* 
@@ -75,19 +86,23 @@ var init = function (window) {
         it to the opposite side of the screen.
         */
     game.checkCirclePosition = function (circle) {
+      var right = circle.x + circle.radius;
+      var left = circle.x - circle.radius;
+      var top = circle.y - circle.radius;
+      var bottom = circle.y + circle.radius;
       // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-      if (circle.x > canvas.width) {
+      if (left > canvas.width) {
         circle.x = 0;
       }
 
       // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-      if (circle.y < 0) {
+      if (bottom < 0) {
         circle.y = canvas.height;
       }
-      if (circle.x < 0) {
+      if (right < 0) {
         circle.x = canvas.width;
       }
-      if (circle.y > canvas.height) {
+      if (top > canvas.height) {
         circle.y = 0;
       }
 
